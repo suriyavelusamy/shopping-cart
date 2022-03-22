@@ -25,7 +25,8 @@ public class ProductClient {
 
 
     public ProductDetailResponseDto getProductDetails(Long productId) {
-//        return mockResponse();
+        //Note: For testing, I have mocked the product detail data
+        //return mockResponse();
         ResponseEntity<String> response = productServiceRestTemplate.getForEntity(constructURL(productId), String.class);
         return processResponse(response);
     }

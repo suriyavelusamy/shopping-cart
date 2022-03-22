@@ -23,7 +23,8 @@ public class WarehouseClient {
     private final RestTemplate warehouseServiceRestTemplate;
 
     public Double getPostalDistance(Long postalCode) {
-//        return 2.0;
+        //Note: For testing, I have mocked the postal distance data
+        //return 2.0;
         ResponseEntity<String> response = warehouseServiceRestTemplate.getForEntity(constructURL(postalCode), String.class);
         PostalDistanceResponseDto postalDistanceResponseDto = processResponse(response);
         return postalDistanceResponseDto.getPostalDistance();
