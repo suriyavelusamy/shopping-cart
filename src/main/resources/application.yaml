@@ -1,0 +1,28 @@
+service:
+  product:
+    rest:
+      domain: http://product.squareshift.com
+      productDetailsGetUrl: /product
+  warehouse:
+    rest:
+      domain: http://warehouse.squareshift.com
+      postalDistanceGetUrl: /warehouse/distance
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5455/shopping_cart_db"
+    username: "postgres"
+    password: "postgres"
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate:
+      dialect: "org.hibernate.dialect.PostgreSQLDialect"
+      temp.use_jdbc_metadata_defaults: false
+      default_schema: shopping_cart
+  flyway:
+    schemas: shopping_cart
+    enabled: true
+
+server:
+  port: 8999
